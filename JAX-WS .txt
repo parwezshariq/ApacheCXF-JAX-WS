@@ -27,5 +27,7 @@ package: com.shariqparwez.cxfdemo
 
 http://localhost:8080/apache-cxf-jax-ws-demo/HelloWorld?wsdl
 
+http://localhost:8080/apache-cxf-jax-ws-demo/services/orders?wsdl
+
 
 
