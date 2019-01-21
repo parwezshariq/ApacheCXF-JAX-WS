@@ -18,6 +18,15 @@
 		implementor="com.shariqparwez.cxfdemo.HelloWorldImpl"
 		address="/HelloWorld" />
 	
-	<jaxws:endpoint id="orders" implementor="com.shariqparwez.cxfdemo.orders.DefaultOrdersEndpoint" address="/services/orders"/>
+	<jaxws:endpoint id="orders" implementor="com.shariqparwez.cxfdemo.orders.DefaultOrdersEndpoint" address="/services/orders" >
+	
+	<jaxws:inInterceptors>
+		<ref bean="orderServiceSoapHeaderInInterceptor" />
+	</jaxws:inInterceptors>
+	
+	</jaxws:endpoint>
+
+	<bean id="orderServiceSoapHeaderInInterceptor"
+		class="com.shariqparwez.cxfdemo.orders.OrderServiceSoapHeaderInInterceptor" />
 
 </beans>

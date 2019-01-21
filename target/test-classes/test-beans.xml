@@ -17,6 +17,11 @@
 	<bean id="defaultOrdersEndpoint"
 		class="com.shariqparwez.cxfdemo.orders.DefaultOrdersEndpoint" />
 
+	<bean id="orderServiceSoapHeaderInInterceptor"
+		class="com.shariqparwez.cxfdemo.orders.OrderServiceSoapHeaderInInterceptor" />
+	<bean id="orderServiceSoapHeaderOutInterceptor"
+		class="com.shariqparwez.cxfdemo.orders.OrderServiceSoapHeaderOutInterceptor" />
+	
 	<jaxws:server id="testOrdersServer"
 		address="http://localhost:9001/apache-cxf-jax-ws-demo/services/orders"
 		serviceBean="#defaultOrdersEndpoint"
@@ -24,6 +29,7 @@
 
 		<jaxws:inInterceptors>
 			<ref bean="LoggingInInterceptor" />
+			<ref bean="orderServiceSoapHeaderInInterceptor" />
 		</jaxws:inInterceptors>
 		<jaxws:outInterceptors>
 			<ref bean="LoggingOutInterceptor" />
@@ -45,6 +51,7 @@
 		</jaxws:inInterceptors>
 		<jaxws:outInterceptors>
 			<ref bean="LoggingOutInterceptor" />
+			<ref bean="orderServiceSoapHeaderOutInterceptor" />
 		</jaxws:outInterceptors>
 
 	</jaxws:client>
